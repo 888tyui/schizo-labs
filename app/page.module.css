@@ -186,6 +186,7 @@
 .schzButton {
   display: inline-flex;
   align-items: center;
+  text-decoration: none;
   padding: 0.4rem 1.5rem;
   border: 2px solid var(--color-accent);
   background: var(--color-accent);

@@ -69,8 +69,15 @@ export default function Home() {
             </p>
 
             <div className={styles.heroActions}>
-              <span className={styles.caBadge}>CA : TBA</span>
-              <span className={styles.schzButton}>$SCHZ</span>
+              <span className={styles.caBadge}>CA : GRnfFU...Dwpump</span>
+              <a
+                href="https://pump.fun/coin/GRnfFUdmuqbr3KSYvKZxD4DnZcXNQg5s1uvyiuDwpump"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.schzButton}
+              >
+                $SCHZ
+              </a>
             </div>
 
             <div className={styles.heroCoords}>
