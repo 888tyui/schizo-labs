@@ -11,7 +11,7 @@ import type { Adapter, WalletError } from "@solana/wallet-adapter-base";
 export function SolanaProvider({ children }: { children: ReactNode }) {
   const endpoint = useMemo(
     () =>
-      process.env.NEXT_PUBLIC_SOLANA_RPC_URL || clusterApiUrl("devnet"),
+      process.env.SOLANA_RPC_URL || clusterApiUrl("devnet"),
     []
   );
 

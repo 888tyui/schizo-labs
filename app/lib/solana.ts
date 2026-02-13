@@ -19,7 +19,7 @@ export async function buildMemoTransaction(
 }
 
 export function getSolanaCluster(): "mainnet-beta" | "devnet" {
-  const rpcUrl = process.env.NEXT_PUBLIC_SOLANA_RPC_URL || "";
+  const rpcUrl = process.env.SOLANA_RPC_URL || "";
   if (rpcUrl.includes("mainnet")) return "mainnet-beta";
   return "devnet";
 }
