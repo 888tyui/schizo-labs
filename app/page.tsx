@@ -68,6 +68,11 @@ export default function Home() {
               REJECT NORMALCY<span className={styles.taglineStar}>&#x2726;</span>JOIN THE FREQUENCY
             </p>
 
+            <div className={styles.heroActions}>
+              <span className={styles.caBadge}>CA : TBA</span>
+              <span className={styles.schzButton}>$SCHZ</span>
+            </div>
+
             <div className={styles.heroCoords}>
               <span>NODE 41.40338N</span>
               <span className={styles.coordDivider}>&#x2022;</span>
