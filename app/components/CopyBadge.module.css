@@ -1,0 +1,60 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 1.2rem;
+  border: 1px solid var(--color-secondary);
+  background: rgba(255, 0, 229, 0.08);
+  color: var(--color-secondary);
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 15px var(--color-secondary-glow);
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.badge:hover {
+  background: rgba(255, 0, 229, 0.15);
+  box-shadow: 0 0 20px var(--color-secondary-glow);
+}
+
+.label {
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  flex-shrink: 0;
+}
+
+.value {
+  font-family: var(--font-geist-mono);
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.copyHint {
+  flex-shrink: 0;
+  font-size: 0.45rem;
+  letter-spacing: 0.2em;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid currentColor;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.badge:hover .copyHint {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .badge {
+    font-size: 0.45rem;
+  }
+
+  .value {
+    max-width: 180px;
+  }
+}

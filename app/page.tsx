@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CopyBadge } from "./components/CopyBadge";
 import { GlitchText } from "./components/GlitchText";
 import { Sparkle } from "./components/Sparkle";
 import { TransmissionFlow } from "./components/TransmissionFlow";
@@ -69,7 +70,7 @@ export default function Home() {
             </p>
 
             <div className={styles.heroActions}>
-              <span className={styles.caBadge}>CA : GRnfFU...Dwpump</span>
+              <CopyBadge label="CA :" value="GRnfFUdmuqbr3KSYvKZxD4DnZcXNQg5s1uvyiuDwpump" />
               <a
                 href="https://pump.fun/coin/GRnfFUdmuqbr3KSYvKZxD4DnZcXNQg5s1uvyiuDwpump"
                 target="_blank"
