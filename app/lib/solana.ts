@@ -18,10 +18,14 @@ export async function buildMemoTransaction(
   return transaction;
 }
 
-export function getExplorerUrl(
-  txSignature: string,
-  cluster: "devnet" | "mainnet-beta" = "devnet"
-): string {
+export function getSolanaCluster(): "mainnet-beta" | "devnet" {
+  const rpcUrl = process.env.NEXT_PUBLIC_SOLANA_RPC_URL || "";
+  if (rpcUrl.includes("mainnet")) return "mainnet-beta";
+  return "devnet";
+}
+
+export function getExplorerUrl(txSignature: string): string {
+  const cluster = getSolanaCluster();
   const base = "https://explorer.solana.com/tx";
   const params = cluster === "mainnet-beta" ? "" : `?cluster=${cluster}`;
   return `${base}/${txSignature}${params}`;
