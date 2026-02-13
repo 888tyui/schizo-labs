@@ -1,0 +1,163 @@
+.container {
+  position: relative;
+}
+
+/* ── Base button ── */
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 1px;
+  background: transparent;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    letter-spacing 0.4s var(--ease-out-expo);
+  white-space: nowrap;
+}
+
+.button:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 12px var(--color-accent-glow), inset 0 0 8px rgba(204, 255, 0, 0.03);
+  letter-spacing: 0.28em;
+}
+
+/* ── Status dots ── */
+.dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-text-dim);
+  flex-shrink: 0;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover .dot {
+  background: var(--color-accent);
+  box-shadow: 0 0 6px var(--color-accent-glow);
+}
+
+.dotActive {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow), 0 0 16px var(--color-accent-glow);
+  animation: pulse-glow 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* ── Connected state ── */
+.connected {
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+}
+
+.connected:hover {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 12px var(--color-secondary-glow), inset 0 0 8px rgba(255, 0, 229, 0.03);
+}
+
+/* ── Connecting state ── */
+.connecting {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  animation: border-glow 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.connecting .dot {
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
+  animation: blink 0.8s step-end infinite;
+}
+
+/* ── Dropdown ── */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 180px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 1px;
+  padding: 0.25rem 0;
+  z-index: 100;
+  animation: fade-in-up 0.2s var(--ease-out-expo) forwards;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.5rem;
+  letter-spacing: 0.18em;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: none;
+  text-align: left;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    letter-spacing 0.3s var(--ease-out-expo);
+}
+
+.dropdownItem:hover {
+  color: var(--color-text);
+  background: var(--color-surface-tint);
+  letter-spacing: 0.22em;
+}
+
+.dropdownItemDanger:hover {
+  color: var(--color-secondary);
+}
+
+.dropdownEmpty {
+  padding: 0.75rem 0.85rem;
+  font-size: 0.45rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-dim);
+  text-align: center;
+}
+
+/* ── Wallet icon ── */
+.walletIcon {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  object-fit: contain;
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .button {
+    font-size: 0.48rem;
+    padding: 0.3rem 0.6rem;
+    letter-spacing: 0.12em;
+  }
+
+  .button:hover {
+    letter-spacing: 0.16em;
+  }
+
+  .dropdown {
+    min-width: 150px;
+  }
+
+  .dropdownItem {
+    font-size: 0.45rem;
+    padding: 0.5rem 0.65rem;
+  }
+}

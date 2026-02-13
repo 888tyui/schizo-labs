@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Subject {
+  id            String         @id @default(cuid())
+  subjectId     String         @unique
+  division      String
+  answers       Json
+  walletAddress String?
+  createdAt     DateTime       @default(now())
+  transmissions Transmission[]
+}
+
+model Transmission {
+  id            String   @id @default(cuid())
+  content       String   @db.VarChar(280)
+  txSignature   String?  @unique
+  walletAddress String?
+  subjectId     String?
+  subject       Subject? @relation(fields: [subjectId], references: [id])
+  createdAt     DateTime @default(now())
+}

@@ -1,0 +1,80 @@
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem 1.5rem;
+  flex: 1;
+  position: relative;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.counter:hover {
+  transform: translateY(-3px);
+}
+
+.counter:hover .number {
+  text-shadow: 0 0 30px var(--color-primary-glow);
+  color: var(--color-text);
+}
+
+.counter:hover .symbol {
+  color: var(--color-secondary);
+  text-shadow: 0 0 15px var(--color-secondary-glow);
+}
+
+.numberRow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.number {
+  font-family: var(--font-retro-wide);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: var(--color-text);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  transition: text-shadow 0.4s ease;
+}
+
+.counting {
+  animation: count-glow 2s ease-out forwards;
+}
+
+.symbol {
+  font-family: var(--font-retro-regular);
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  color: var(--color-accent);
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.labelDot {
+  width: 4px;
+  height: 4px;
+  background: var(--color-primary);
+  box-shadow: 0 0 8px var(--color-primary-glow);
+  transition: all 0.3s ease;
+}
+
+.counter:hover .labelDot {
+  background: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+.label {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--color-text-dim);
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.counter:hover .label {
+  color: var(--color-text-muted);
+}

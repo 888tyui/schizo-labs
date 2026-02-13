@@ -1,0 +1,54 @@
+.strip {
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 0.85rem 0;
+  position: relative;
+}
+
+.strip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--color-surface) 0%,
+    transparent 5%,
+    transparent 95%,
+    var(--color-surface) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee 60s linear infinite;
+  transition: animation-duration 0.8s ease;
+}
+
+.strip:hover .track {
+  animation-duration: 20s;
+}
+
+.reversed .track {
+  animation-direction: reverse;
+}
+
+.text {
+  white-space: nowrap;
+  font-family: var(--font-retro-narrow);
+  font-size: 0.85rem;
+  letter-spacing: 0.3em;
+  color: var(--color-text-dim);
+  padding-right: 2rem;
+  flex-shrink: 0;
+  transition: color 0.4s ease;
+}
+
+.strip:hover .text {
+  color: var(--color-text-muted);
+}

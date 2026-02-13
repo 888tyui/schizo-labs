@@ -1,0 +1,291 @@
+.flow {
+  width: 100%;
+}
+
+.phases {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Phase card ── */
+.phase {
+  position: relative;
+  border-bottom: 1px solid var(--color-border-subtle);
+  cursor: pointer;
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.phase:first-child {
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.phase::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), transparent);
+  transition: width 0.6s var(--ease-out-expo);
+}
+
+.phase:hover::after,
+.phaseActive::after {
+  width: 100%;
+}
+
+.phase:hover {
+  background: linear-gradient(90deg, rgba(36, 0, 255, 0.04), transparent 70%);
+}
+
+.phaseActive {
+  background: linear-gradient(90deg, rgba(36, 0, 255, 0.06), transparent 60%);
+}
+
+/* ── Header row ── */
+.phaseHeader {
+  display: grid;
+  grid-template-columns: 70px 1fr 40px;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  transition: padding 0.4s var(--ease-out-expo);
+}
+
+.phase:hover .phaseHeader {
+  padding-left: 1rem;
+}
+
+.phaseActive .phaseHeader {
+  padding-left: 1rem;
+}
+
+.phaseNumberBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.phaseNumber {
+  font-family: var(--font-retro-wide);
+  font-size: 1.6rem;
+  color: var(--color-primary);
+  line-height: 1;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.phase:hover .phaseNumber {
+  color: var(--color-accent);
+  text-shadow: 0 0 15px var(--color-accent-glow);
+}
+
+.phaseActive .phaseNumber {
+  color: var(--color-accent);
+  text-shadow: 0 0 20px var(--color-accent-glow);
+  transform: scale(1.1);
+}
+
+.phaseNumberLine {
+  width: 1px;
+  height: 28px;
+  background: linear-gradient(to bottom, var(--color-primary), transparent);
+  opacity: 0.3;
+  transition: all 0.4s ease;
+}
+
+.phase:hover .phaseNumberLine,
+.phaseActive .phaseNumberLine {
+  opacity: 0.8;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+}
+
+.phaseMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.phaseSubtitle {
+  font-size: 0.5rem;
+  letter-spacing: 0.35em;
+  color: var(--color-text-dim);
+  transition: color 0.3s ease;
+}
+
+.phase:hover .phaseSubtitle,
+.phaseActive .phaseSubtitle {
+  color: var(--color-secondary);
+}
+
+.phaseTitle {
+  font-family: var(--font-retro-regular);
+  font-size: 1.4rem;
+  color: var(--color-text);
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+}
+
+.phase:hover .phaseTitle {
+  color: var(--color-accent);
+}
+
+.phaseActive .phaseTitle {
+  color: var(--color-accent);
+  text-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+.phaseToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phaseToggle span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-border-subtle);
+  font-size: 1rem;
+  color: var(--color-text-dim);
+  transition: all 0.35s var(--ease-out-expo);
+  font-family: var(--font-mono);
+}
+
+.phase:hover .phaseToggle span {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.toggleActive {
+  background: rgba(204, 255, 0, 0.08) !important;
+  border-color: var(--color-accent) !important;
+  color: var(--color-accent) !important;
+  box-shadow: 0 0 12px var(--color-accent-glow);
+}
+
+/* ── Expandable body ── */
+.phaseBody {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.6s var(--ease-out-expo), opacity 0.4s ease, padding 0.4s ease;
+  padding: 0 0 0 calc(70px + 1.5rem);
+}
+
+.phaseBodyOpen {
+  max-height: 500px;
+  opacity: 1;
+  padding: 0 0 2.5rem calc(70px + 1.5rem);
+}
+
+.phaseDesc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  line-height: 2;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Terminal block ── */
+.phaseTerminal {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.2rem 1.5rem;
+  background: rgba(5, 5, 5, 0.8);
+  border: 1px solid var(--color-border);
+  margin-bottom: 1.5rem;
+  max-width: 480px;
+  position: relative;
+  overflow: hidden;
+}
+
+.phaseTerminal::before {
+  content: 'TERMINAL';
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.4rem;
+  letter-spacing: 0.3em;
+  color: var(--color-text-dim);
+  padding: 0.3rem 0.6rem;
+  border-left: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+  opacity: 0.5;
+}
+
+.termLine {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+  opacity: 0;
+  animation: termReveal 0.3s ease forwards;
+}
+
+@keyframes termReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.phaseDetail {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dim);
+  line-height: 2;
+  max-width: 600px;
+  padding-left: 1rem;
+  border-left: 2px solid var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+/* ── Connector ── */
+.connector {
+  display: none;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 640px) {
+  .phaseHeader {
+    grid-template-columns: 50px 1fr 32px;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+
+  .phaseNumber {
+    font-size: 1.2rem;
+  }
+
+  .phaseTitle {
+    font-size: 1.1rem;
+  }
+
+  .phaseBody,
+  .phaseBodyOpen {
+    padding-left: calc(50px + 1rem);
+  }
+
+  .phaseBodyOpen {
+    padding-bottom: 2rem;
+  }
+
+  .phaseTerminal {
+    max-width: 100%;
+  }
+
+  .termLine {
+    font-size: 0.55rem;
+  }
+}

@@ -1,0 +1,135 @@
+.card {
+  padding: 1.5rem;
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.4s var(--ease-out-expo);
+  animation: fade-in-up 0.5s var(--ease-out-expo) both;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  transition: width 0.5s var(--ease-out-expo);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--color-primary-glow), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  border-color: var(--color-border-hover);
+  transform: rotate(0deg) translateY(-4px) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 25px var(--color-primary-glow);
+}
+
+.card:hover::before {
+  width: 100%;
+}
+
+.card:hover::after {
+  opacity: 0.06;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.senderId {
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  color: var(--color-accent);
+  font-weight: 600;
+  transition: text-shadow 0.3s ease;
+}
+
+.card:hover .senderId {
+  text-shadow: 0 0 10px var(--color-accent-glow);
+}
+
+.division {
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-tint);
+}
+
+.content {
+  font-size: 0.8rem;
+  line-height: 1.9;
+  color: var(--color-text);
+  word-break: break-word;
+  padding: 0.25rem 0;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.onchainInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.walletAddress {
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  color: var(--color-text-dim);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-geist-mono);
+}
+
+.explorerLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.45rem;
+  letter-spacing: 0.15em;
+  color: var(--color-primary-bright, var(--color-primary));
+  text-decoration: none;
+  padding: 0.15rem 0.5rem;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+.explorerLink:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  box-shadow: 0 0 12px var(--color-primary-glow);
+}
+
+.timestamp {
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-dim);
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .timestamp {
+  opacity: 1;
+}

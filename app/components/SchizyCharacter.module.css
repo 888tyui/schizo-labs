@@ -1,0 +1,107 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.canvasWrap {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  cursor: pointer;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  color: var(--color-text-dim);
+  animation: loadPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loadPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Expression label */
+.exprLabel {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  font-size: 0.55rem;
+  letter-spacing: 0.35em;
+  color: var(--color-secondary);
+  text-shadow: 0 0 15px var(--color-secondary-glow);
+  opacity: 0;
+  transition: all 0.5s var(--ease-out-expo);
+  pointer-events: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 1rem;
+  border: 1px solid rgba(255, 0, 229, 0.25);
+  background: rgba(255, 0, 229, 0.06);
+  z-index: 10;
+}
+
+.exprLabel.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.exprDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  animation: pulse-glow 1s ease-in-out infinite;
+}
+
+.exprFace {
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+/* Click hint */
+.clickHint {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.45rem;
+  letter-spacing: 0.35em;
+  color: var(--color-text-dim);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none;
+  animation: hintFade 4s ease-in-out infinite;
+  z-index: 10;
+}
+
+.hintDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes hintFade {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 0.6; }
+}
