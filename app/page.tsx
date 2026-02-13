@@ -167,7 +167,7 @@ export default function Home() {
           </Link>
           <div className={styles.ctaSocials}>
             <a
-              href="https://x.com"
+              href="https://x.com/Schizo_Labs"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.ctaSocialLink}

@@ -36,7 +36,7 @@ export function Nav() {
       <div className={styles.navRight}>
         <div className={styles.socials}>
           <a
-            href="https://x.com"
+            href="https://x.com/Schizo_Labs"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}
